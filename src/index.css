@@ -1,0 +1,340 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-persian: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+  }
+
+  /* When RTL / Persian is active */
+  [dir="rtl"],
+  .font-vazir,
+  [lang="fa"] {
+    font-family: var(--font-persian) !important;
+    letter-spacing: 0 !important;
+    word-spacing: 0.02em;
+    line-height: 1.85;
+  }
+
+  [dir="rtl"] h1,
+  [dir="rtl"] h2,
+  [dir="rtl"] h3,
+  [dir="rtl"] h4,
+  [dir="rtl"] h5,
+  [dir="rtl"] h6 {
+    font-family: var(--font-persian) !important;
+    letter-spacing: 0 !important;
+    line-height: 1.55;
+    font-weight: 700;
+  }
+
+  [dir="rtl"] p,
+  [dir="rtl"] span,
+  [dir="rtl"] button,
+  [dir="rtl"] input,
+  [dir="rtl"] textarea,
+  [dir="rtl"] select,
+  [dir="rtl"] a {
+    font-family: var(--font-persian) !important;
+    letter-spacing: 0 !important;
+  }
+
+  /* Prevent negative letter spacing glitch in Persian */
+  [dir="rtl"] .tracking-tight,
+  [dir="rtl"] .tracking-tighter,
+  [dir="rtl"] .tracking-wide,
+  [dir="rtl"] .tracking-wider,
+  [dir="rtl"] .tracking-widest {
+    letter-spacing: 0 !important;
+  }
+
+  /* Keep English monospace codes cleanly rendered in LTR inside RTL */
+  [dir="rtl"] code,
+  [dir="rtl"] pre,
+  [dir="rtl"] .font-mono {
+    font-family: var(--font-mono), var(--font-persian), monospace !important;
+    letter-spacing: normal;
+  }
+
+  /* Custom sleek scrollbar */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080b12;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 9999px;
+    border: 2px solid #080b12;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #10b981;
+  }
+
+  html.light ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  html.light ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border: 2px solid #f1f5f9;
+  }
+  html.light ::-webkit-scrollbar-thumb:hover {
+    background: #10b981;
+  }
+}
+
+/* ==========================================================================
+   LIGHT MODE SYSTEM OVERRIDES
+   ========================================================================== */
+html.light {
+  color-scheme: light;
+}
+
+html.light body,
+html.light #root,
+html.light .app-container {
+  background-color: #f8fafc !important;
+  color: #1e293b !important;
+}
+
+/* Navbar in light mode */
+html.light header#main-navbar {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-bottom-color: #e2e8f0 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Section backgrounds in light mode */
+html.light .bg-\[\#070a12\],
+html.light .bg-\[\#05070c\],
+html.light .bg-\[\#0c0f17\] {
+  background-color: #f8fafc !important;
+}
+
+html.light .bg-\[\#090d16\],
+html.light .bg-\[\#060910\] {
+  background-color: #f1f5f9 !important;
+}
+
+html.light .bg-gradient-to-b.from-\[\#0b101c\].to-\[\#06080e\] {
+  background-image: linear-gradient(to bottom, #ffffff, #f1f5f9) !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* Cards & containers in light mode */
+html.light .bg-slate-900,
+html.light .bg-slate-900\/90,
+html.light .bg-slate-900\/80,
+html.light .bg-slate-900\/70,
+html.light .bg-slate-900\/60,
+html.light .bg-slate-900\/50,
+html.light .bg-slate-900\/40 {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+}
+
+html.light .bg-slate-950,
+html.light .bg-slate-950\/95,
+html.light .bg-slate-950\/90,
+html.light .bg-slate-950\/85,
+html.light .bg-slate-950\/80,
+html.light .bg-slate-950\/70 {
+  background-color: #f8fafc !important;
+  border-color: #e2e8f0 !important;
+}
+
+html.light .bg-slate-800,
+html.light .bg-slate-800\/90,
+html.light .bg-slate-800\/80,
+html.light .bg-slate-800\/60,
+html.light .bg-slate-800\/40 {
+  background-color: #f1f5f9 !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+html.light .bg-slate-800:hover,
+html.light .hover\:bg-slate-800:hover,
+html.light .hover\:bg-slate-700:hover,
+html.light .hover\:bg-slate-700\/80:hover {
+  background-color: #e2e8f0 !important;
+}
+
+/* Text colors in light mode */
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-100,
+html.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-400 {
+  color: #475569 !important;
+}
+
+html.light .text-slate-500 {
+  color: #64748b !important;
+}
+
+html.light .border-slate-800,
+html.light .border-slate-800\/80,
+html.light .border-slate-800\/60,
+html.light .border-slate-800\/40,
+html.light .border-slate-700,
+html.light .border-slate-700\/80,
+html.light .border-slate-700\/60,
+html.light .border-slate-600 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Inputs & Forms in light mode */
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Modal backgrounds in light mode */
+html.light .bg-slate-950\/85 {
+  background-color: rgba(15, 23, 42, 0.45) !important;
+}
+
+/* Technical CLI Terminal retains deep dark terminal styling for authenticity */
+html.light div[dir="ltr"].bg-\[\#090d16\],
+html.light .terminal-window {
+  background-color: #0b0f19 !important;
+  border-color: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+html.light div[dir="ltr"].bg-\[\#090d16\] .bg-\[\#060910\] {
+  background-color: #060910 !important;
+  border-color: #1e293b !important;
+}
+
+html.light div[dir="ltr"].bg-\[\#090d16\] .text-white {
+  color: #f8fafc !important;
+}
+
+html.light div[dir="ltr"].bg-\[\#090d16\] .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+html.light div[dir="ltr"].bg-\[\#090d16\] .text-slate-300 {
+  color: #cbd5e1 !important;
+}
+
+html.light div[dir="ltr"].bg-\[\#090d16\] .text-slate-500 {
+  color: #64748b !important;
+}
+
+html.light div[dir="ltr"].bg-\[\#090d16\] .bg-slate-950 {
+  background-color: #020617 !important;
+  border-color: #1e293b !important;
+}
+
+html.light div[dir="ltr"].bg-\[\#090d16\] .border-slate-800,
+html.light div[dir="ltr"].bg-\[\#090d16\] .border-slate-800\/80,
+html.light div[dir="ltr"].bg-\[\#090d16\] .border-slate-800\/60 {
+  border-color: #1e293b !important;
+}
+
+/* Technical grid & ambient styles */
+.tech-grid {
+  background-size: 36px 36px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.tech-dots {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(16, 185, 129, 0.15) 1px, transparent 1px);
+}
+
+.light .tech-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+}
+
+.light .tech-dots {
+  background-image: radial-gradient(rgba(16, 185, 129, 0.2) 1px, transparent 1px);
+}
+
+/* Glow effects */
+.glow-emerald {
+  box-shadow: 0 0 35px -5px rgba(16, 185, 129, 0.2);
+}
+
+.glow-blue {
+  box-shadow: 0 0 35px -5px rgba(59, 130, 246, 0.2);
+}
+
+.glow-accent {
+  box-shadow: 0 0 25px -5px rgba(0, 245, 160, 0.25);
+}
+
+/* Pulsing network packet animation */
+@keyframes signal-pulse {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+}
+
+.animate-signal {
+  stroke-dasharray: 8, 8;
+  animation: signal-pulse 3s linear infinite;
+}
+
+@keyframes ping-subtle {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.9;
+  }
+}
+
+.pulse-node {
+  animation: ping-subtle 4s ease-in-out infinite;
+}
